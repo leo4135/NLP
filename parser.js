@@ -6,7 +6,7 @@ const fs = require("fs");
 const tokenizer = new natural.WordTokenizer();
 
 
-async function parseArticle() {
+(async function parseArticle() {
     const article = await fetch('https://www.w3.org/DesignIssues/TimBook-old/History.html')
         .then(res => res.text())
     console.log(article)
@@ -33,6 +33,13 @@ parse.push(x[1])
     const sortable = Object.fromEntries(
         Object.entries(tagsCalculate).sort(([,a],[,b]) => b - a)
     );
+
+    let counter = 0;
+    let keysSort = Object.keys(sortable);
+    keysSort.map((x) => {
+        counter > 4 ? delete sortable[`${x}`] : console.log('');
+        counter +=1;
+    })
     fs.writeFile("list.json", JSON.stringify(sortable), (e) => {
         if (e) {
             console.log(e)
@@ -40,6 +47,5 @@ parse.push(x[1])
         console.log('Все успешно')
     })
 
-}
+})()
 
-parseArticle();
