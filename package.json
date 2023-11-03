@@ -1,0 +1,16 @@
+{
+  "name": "nlp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "parser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "natural": "^6.8.0",
+    "nltk": "^0.0.1",
+    "pos": "^0.4.2"
+  }
+}
